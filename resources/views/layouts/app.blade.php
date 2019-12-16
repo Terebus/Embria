@@ -11,9 +11,17 @@
 
     <!-- Scripts -->
     <script>
+        @if(Auth::check())
         window.Laravel = {
             User: @json(Auth::user())
         };
+        @else
+            window.Laravel = {
+            User: {
+                id:0
+            }
+        };
+            @endif;
     </script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
